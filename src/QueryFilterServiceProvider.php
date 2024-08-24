@@ -2,6 +2,7 @@
 
 namespace Mawuva\QueryFilter;
 
+use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\ServiceProvider;
 
 class QueryFilterServiceProvider extends ServiceProvider
@@ -16,6 +17,10 @@ class QueryFilterServiceProvider extends ServiceProvider
                 __DIR__.'/../config/query-filter.php' => config_path('query-filter.php'),
             ], 'config');
         }
+
+        $this->bootEloquentFilterMacro();
+        $this->bootEloquentGetFilteredMacro();
+        $this->bootEloquentGetPaginatedFilteredMacro();
     }
 
     /**
@@ -25,10 +30,60 @@ class QueryFilterServiceProvider extends ServiceProvider
     {
         // Automatically apply the package configuration
         $this->mergeConfigFrom(__DIR__.'/../config/query-filter.php', 'query-filter');
+    }
 
-        // Register the main class to use with the facade
-        $this->app->singleton('query-filter', function () {
-            return new QueryFilter;
+    /**
+     * Boot the eloquent builder 'filter' macro.
+     *
+     * @return mixed
+     */
+    protected function bootEloquentFilterMacro()
+    {
+        $method = config('query-filter.method.filter', 'filter');
+
+        Builder::macro($method, function (?QueryFilter $filter = null) {
+            if ($filter == null) {
+                return $this;
+            }
+
+            return $filter ->apply($this);
+        });
+    }
+
+    /**
+     * Boot the eloquent builder 'getFiltered' macro.
+     *
+     * @return mixed
+     */
+    protected function bootEloquentGetFilteredMacro()
+    {
+        $method = config('query-filter.method.get_filtered', 'getFiltered');
+
+        Builder::macro($method, function (?QueryFilter $filter = null) {
+            if ($filter == null) {
+                return $this;
+            }
+
+            return $filter ->apply($this) ->get();
+        });
+    }
+
+    /**
+     * Boot the eloquent builder 'getPaginatedFiltered' macro.
+     *
+     * @return mixed
+     */
+    protected function bootEloquentGetPaginatedFilteredMacro()
+    {
+        $method = config('query-filter.method.get_paginated_filtered', 'getPaginatedFiltered');
+        $perPage = config('query-filter.paginate.per_page', '20');
+
+        Builder::macro($method, function (?QueryFilter $filter = null) use($perPage) {
+            if ($filter == null) {
+                return $this;
+            }
+
+            return $filter ->apply($this) ->paginate($perPage);
         });
     }
 }
