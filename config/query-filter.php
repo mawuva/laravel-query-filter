@@ -48,7 +48,7 @@ return [
     'messages' => [
         'too_many_filters'          => 'Too many filters in the query string. Only one pipe character is allowed.',
         'invalid_filter_query'      => 'Invalid filter query. Please check your query parameters.',
-        'infiltrable_attributes'    => 'Requested attribute(s) :invalid are not filtrable. Filtrable attributes are :available.',
+        'infiltrable_attributes'    => 'Requested property(ies) :invalid are not filterables. Filterables property(ies) are :available.',
         'invalid_filter'            => 'Requested filter(s) :invalid are not available. Available filters are :available.',
 
         'invalid_search_query'  => 'Invalid search query. Please check your query parameters.',

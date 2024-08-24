@@ -37,9 +37,9 @@ trait RequestedFiltersManager
     /**
      * Get requested filters
      *
-     * @return array
+     * @return Collection
      */
-    public function getRequestedFilters(): array
+    public function getRequestedFilters(): Collection
     {
         return collect($this->requestedFilters)->unique()->values();
     }
@@ -73,7 +73,7 @@ trait RequestedFiltersManager
                 if (!empty($filterDetails[1])) {
                     $filterData[$filterDetails[0]] = [
                         'filter'=>$filterDetails[1],
-                        'values'=> $this ->getFilterValue($value)
+                        'value'=> $this ->getFilterValue($value)
                     ];
 
                     $this ->requestedFilters[] = $filterDetails[1];
@@ -81,7 +81,7 @@ trait RequestedFiltersManager
 
                 else {
                     $filterData[$filterDetails[0]] = [
-                        'values'=> $this ->getFilterValue($value)
+                        'value'=> $this ->getFilterValue($value)
                     ];
                 }
             }

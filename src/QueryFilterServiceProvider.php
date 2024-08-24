@@ -13,6 +13,8 @@ class QueryFilterServiceProvider extends ServiceProvider
      */
     public function boot()
     {
+        require_once __DIR__.'/helpers.php';
+        
         if ($this->app->runningInConsole()) {
             $this->publishes([
                 __DIR__.'/../config/query-filter.php' => config_path('query-filter.php'),
