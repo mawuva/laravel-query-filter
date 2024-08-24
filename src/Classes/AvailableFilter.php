@@ -12,6 +12,7 @@ use Mawuva\QueryFilter\Filters\Comparisons\FilterLessOrEqualTo;
 use Mawuva\QueryFilter\Filters\Comparisons\FilterLessThan;
 use Mawuva\QueryFilter\Filters\FilterExact;
 use Mawuva\QueryFilter\Filters\FilterIn;
+use Mawuva\QueryFilter\Filters\FilterNotIn;
 use Mawuva\QueryFilter\Filters\Partials\FilterContains;
 use Mawuva\QueryFilter\Filters\Partials\FilterEndsWith;
 use Mawuva\QueryFilter\Filters\Partials\FilterStartsWith;
@@ -35,6 +36,7 @@ class AvailableFilter
         'less_or_equal'     => FilterLessOrEqualTo::class,
         'exact'             => FilterExact::class,
         'in'                => FilterIn::class,
+        'not_in'            => FilterNotIn::class,
     ];
 
     public function __construct(protected string $name, ?string $insideName = null)
