@@ -6,6 +6,8 @@ use Illuminate\Foundation\Application;
 use Illuminate\Support\Collection;
 use Mawuva\QueryFilter\Concerns\Classes\AvailabilityHelper;
 use Mawuva\QueryFilter\Filters\Partials\FilterContains;
+use Mawuva\QueryFilter\Filters\Partials\FilterEndsWith;
+use Mawuva\QueryFilter\Filters\Partials\FilterStartsWith;
 
 class AvailableFilter
 {
@@ -15,7 +17,10 @@ class AvailableFilter
      * @var array
      */
     protected static $availableBuiltInFilters = [
-        'default' => FilterContains::class
+        'default'       => FilterContains::class,
+        'contains'      => FilterContains::class,
+        'starts_with'   => FilterStartsWith::class,
+        'ends_with'     => FilterEndsWith::class,
     ];
 
     public function __construct(protected string $name, ?string $insideName = null)

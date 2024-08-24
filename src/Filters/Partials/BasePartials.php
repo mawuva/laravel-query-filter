@@ -22,8 +22,21 @@ class BasePartials extends BaseFilter
     protected function apply($query): Builder
     {
         $property = $query->qualifyColumn($this ->property);
+        $value = $this->value;
 
-        $query ->{$this->determineMethod()}($property, 'LIKE', resolvePartialsValue($this ->value, $this ->pattern));
+        if (is_array($value)) {
+            if (countOfFilterValue($value) === 0) {
+                return $query;
+            }
+
+            foreach (filterValue($value) as $item) {
+                $query ->{$this->determineMethod()}($property, 'LIKE', resolvePartialsValue($item, $this ->pattern));
+            }
+        }
+
+        if (is_string($value)) {
+            $query ->{$this->determineMethod()}($property, 'LIKE', resolvePartialsValue($value, $this ->pattern));
+        }
 
         return $query;
     }
