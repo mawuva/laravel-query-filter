@@ -32,4 +32,12 @@ abstract class BaseFilter
 
         return static::apply($query);
     }
+
+    /**
+     * Apply filter
+     *
+     * @param $query
+     * @return Builder
+     */
+    abstract protected function apply($query): Builder;
 }

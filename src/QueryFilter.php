@@ -4,11 +4,11 @@ namespace Mawuva\QueryFilter;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Mawuva\QueryFilter\Concerns\Queries\FiltersQuery;
+use Mawuva\QueryFilter\Concerns\Queries\{FiltersQuery, SearchQuery};
 
 abstract class QueryFilter
 {
-    use FiltersQuery;
+    use FiltersQuery, SearchQuery;
 
     /**
      * @var RequestQueryBuilder
@@ -37,6 +37,7 @@ abstract class QueryFilter
     {
         $this ->builder = $builder;
 
+        $this ->applySearchQuery();
         $this ->applyFilterQuery();
 
         return $this ->builder;

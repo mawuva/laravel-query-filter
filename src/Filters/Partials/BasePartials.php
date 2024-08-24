@@ -21,8 +21,8 @@ class BasePartials extends BaseFilter
      */
     protected function apply($query): Builder
     {
-        $property = $query->qualifyColumn($this ->property);
-        $value = $this->value;
+        $property   = $query->qualifyColumn($this ->property);
+        $value      = $this->value;
 
         if (is_array($value)) {
             if (countOfFilterValue($value) === 0) {
