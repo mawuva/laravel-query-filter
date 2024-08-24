@@ -7,7 +7,9 @@ trait HasBuiltInCustomFilters
     /**
      * @var array
      */
-    protected $customBuiltInFilters = [];
+    protected $customBuiltInFilters = [
+        'trashed' => 'builtInFilterTrashed',
+    ];
 
     /**
      * @param $filterName
@@ -25,5 +27,23 @@ trait HasBuiltInCustomFilters
     protected function getCustomBuiltInFilter($filterName): ?string
     {
         return $this->customBuiltInFilters[$filterName] ?? null;
+    }
+
+    /**
+     * @param $query
+     * @param $value
+     * @return mixed
+     */
+    public function builtInFilterTrashed($query, $value)
+    {
+        if ($value === 'only') {
+            return $query->onlyTrashed();
+        }
+
+        if ($value === 'with') {
+            return $query->withTrashed();
+        }
+
+        return $query->withoutTrashed();
     }
 }
