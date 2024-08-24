@@ -55,4 +55,29 @@ class RequestQueryBuilder extends Request
 
         return $this->resolveFilterParts($filterParts);
     }
+
+    /**
+     * @return Collection|null
+     */
+    public function search(): ?Collection
+    {
+        $searchParameterName = config('query-filter.parameters.search', 'search');
+
+        if (!$this ->has($searchParameterName)) {
+            return null;
+        }
+
+        $searchParts = $this ->getRequestData($searchParameterName);
+        $delimiter = config('query-filter.search_value_delimiter', ",");
+
+        if (is_null($searchParts)) {
+            return collect();
+        }
+
+        if (is_string($searchParts)) {
+            $searchParts = explode($delimiter, $searchParts);
+        }
+
+        return collect($searchParts) ->filter();
+    }
 }

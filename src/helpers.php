@@ -1,5 +1,6 @@
 <?php
 
+use Illuminate\Pipeline\Pipeline;
 use Illuminate\Support\Str;
 
 if (! function_exists('filterValue')) {
@@ -20,4 +21,11 @@ if (! function_exists('resolvePartialsValue')) {
     }
 }
 
-
+if (! function_exists('addFiltersToQuery')) {
+    function addFiltersToQuery($query, $filters) {
+        app(Pipeline::class)
+            ->send($query)
+            ->through($filters)
+            ->thenReturn();
+    }
+}

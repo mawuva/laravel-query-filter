@@ -52,21 +52,9 @@ trait FiltersQuery
             return $this ->resolve($availableFilter, $filter);
         })->toArray();
 
-        $this ->addFiltersToQuery($filters);
+        addFiltersToQuery($this ->builder, $filters);
 
         return $this ->builder;
-    }
-
-    /**
-     * @param $filters
-     * @return void
-     */
-    public function addFiltersToQuery($filters): void
-    {
-        app(Pipeline::class)
-            ->send($this->builder)
-            ->through($filters)
-            ->thenReturn();
     }
 
     /**
