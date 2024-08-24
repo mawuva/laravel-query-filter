@@ -1,0 +1,68 @@
+<?php
+
+namespace DummyNamespace;
+
+use Mawuva\QueryFilter\QueryFilter;
+
+class DummyClass extends QueryFilter
+{
+    /**
+     * List of searchable columns
+     *
+     * @var array
+     */
+    protected function searchableProperties(): array
+    {
+        return [];
+    }
+
+    /**
+     * List of filterable properties
+     *
+     * @var array
+     */
+    protected function filterables(): array
+    {
+        return [];
+    }
+
+    /**
+     * List of fields selectable by default
+     *
+     * @var array
+     */
+    protected function defaultFields(): array
+    {
+        return [];
+    }
+
+    /**
+     * List of selectable fields
+     *
+     * @var array
+     */
+    protected function selectableFields(): array
+    {
+        return [];
+    }
+
+    /**
+     * List of default sorts
+     *
+     * @var array
+     */
+    protected function defaultSorts(): array
+    {
+        return [];
+    }
+
+    /**
+     * List of sortables properties
+     *
+     * @var array
+     */
+    protected function sortables(): array
+    {
+        return [];
+    }
+}

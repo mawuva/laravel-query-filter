@@ -4,6 +4,7 @@ namespace Mawuva\QueryFilter;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Support\ServiceProvider;
+use Mawuva\QueryFilter\Commands\QueryFilterMakeCommand;
 
 class QueryFilterServiceProvider extends ServiceProvider
 {
@@ -16,6 +17,11 @@ class QueryFilterServiceProvider extends ServiceProvider
             $this->publishes([
                 __DIR__.'/../config/query-filter.php' => config_path('query-filter.php'),
             ], 'config');
+
+            // Registering package commands.
+            $this->commands([
+                QueryFilterMakeCommand::class
+            ]);
         }
 
         $this->bootEloquentFilterMacro();
