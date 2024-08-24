@@ -7,9 +7,9 @@ use Mawuva\QueryFilter\QueryFilter;
 class DummyClass extends QueryFilter
 {
     /**
-     * List of searchable columns
+     * Searchable columns
      *
-     * @var array
+     * @return array
      */
     protected function searchableProperties(): array
     {
@@ -17,9 +17,9 @@ class DummyClass extends QueryFilter
     }
 
     /**
-     * List of filterable properties
+     * Filterable properties
      *
-     * @var array
+     * @return array
      */
     protected function filterables(): array
     {
@@ -27,9 +27,9 @@ class DummyClass extends QueryFilter
     }
 
     /**
-     * List of fields selectable by default
+     * Fields selectable by default
      *
-     * @var array
+     * @return array
      */
     protected function defaultFields(): array
     {
@@ -37,9 +37,9 @@ class DummyClass extends QueryFilter
     }
 
     /**
-     * List of selectable fields
+     * Felectable fields
      *
-     * @var array
+     * @return array
      */
     protected function selectableFields(): array
     {
@@ -47,9 +47,9 @@ class DummyClass extends QueryFilter
     }
 
     /**
-     * List of default sorts
+     * Default sorts
      *
-     * @var array
+     * @return array
      */
     protected function defaultSorts(): array
     {
@@ -57,9 +57,9 @@ class DummyClass extends QueryFilter
     }
 
     /**
-     * List of sortables properties
+     * Sortables properties
      *
-     * @var array
+     * @return array
      */
     protected function sortables(): array
     {
