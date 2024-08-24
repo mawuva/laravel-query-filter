@@ -1,0 +1,8 @@
+/.gitignore     export-ignore
+/tests          export-ignore
+/phpunit.xml.dist   export-ignore
+/.gitattribute     export-ignore
+/.github export-ignore
+CHANGELOG.md export-ignore
+CONTRIBUTING.md export-ignore
+.styleci.yml export-ignore

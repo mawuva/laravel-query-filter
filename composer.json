@@ -1,0 +1,61 @@
+{
+    "name": "mawuva/laravel-query-filter",
+    "description": "Laravel package for filtering resources with request query string",
+    "keywords": [
+        "mawuva",
+        "query-filter",
+        "query",
+        "filter",
+        "laravel"
+    ],
+    "homepage": "https://github.com/mawuva/laravel-query-filter",
+    "license": "MIT",
+    "type": "library",
+    "authors": [
+        {
+            "name": "Ephraïm Seddor",
+            "email": "seddorephraim7@gmail.com",
+            "role": "Developer"
+        }
+    ],
+    "require": {
+        "php": "^7.2|^7.3|^7.4|^8.0|^8.1|^8.2|^8.3",
+        "illuminate/support": "^8.0|^9.0|^10.0|^11.0"
+    },
+    "require-dev": {
+        "laravel/legacy-factories": "^1.0.4",
+        "orchestra/testbench": "^9.2",
+        "pestphp/pest": "^2.35"
+    },
+    "autoload": {
+        "psr-4": {
+            "Mawuva\\QueryFilter\\": "src"
+        }
+    },
+    "autoload-dev": {
+        "psr-4": {
+            "Mawuva\\QueryFilter\\Tests\\": "tests"
+        }
+    },
+    "scripts": {
+        "test": "vendor/bin/pest",
+        "test-coverage": "vendor/bin/phpunit --coverage-html coverage"
+
+    },
+    "config": {
+        "sort-packages": true,
+        "allow-plugins": {
+            "pestphp/pest-plugin": true
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "Mawuva\\QueryFilter\\QueryFilterServiceProvider"
+            ],
+            "aliases": {
+                "QueryFilter": "Mawuva\\QueryFilter\\QueryFilterFacade"
+            }
+        }
+    }
+}
