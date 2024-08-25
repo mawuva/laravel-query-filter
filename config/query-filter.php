@@ -46,14 +46,15 @@ return [
     ],
 
     'messages' => [
-        'too_many_filters'          => 'Too many filters in the query string. Only one pipe character is allowed.',
-        'invalid_filter_query'      => 'Invalid filter query. Please check your query parameters.',
-        'infiltrable_attributes'    => 'Requested property(ies) :invalid are not filterables. Filterables property(ies) are :available.',
-        'invalid_filter'            => 'Requested filter(s) :invalid are not available. Available filters are :available.',
+        'too_many_filters'              => 'Too many filters in the query string. Only one pipe character is allowed.',
+        'invalid_filter_query'          => 'Invalid filter query. Please check your query parameters.',
+        'infiltrable_attributes'        => 'Requested property(ies) :invalid are not filterables. Filterables property(ies) are :available.',
+        'invalid_filter'                => 'Requested filter(s) :invalid are not available. Available filters are :available.',
+        'between_value_should_be_two'   => 'The maximum number of value for between filter should be 2.',
 
-        'invalid_search_query'  => 'Invalid search query. Please check your query parameters.',
-        'invalid_include_query' => 'Invalid include query. Please check your query parameters.',
-        'invalid_sort_query'    => 'Invalid sort query. Please check your query parameters.',
-        'invalid_fields_query'  => 'Invalid fields query. Please check your query parameters.',
+        'invalid_search_query'          => 'Invalid search query. Please check your query parameters.',
+        'invalid_include_query'         => 'Invalid include query. Please check your query parameters.',
+        'invalid_sort_query'            => 'Invalid sort query. Please check your query parameters.',
+        'invalid_fields_query'          => 'Invalid fields query. Please check your query parameters.',
     ],
 ];

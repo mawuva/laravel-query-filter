@@ -5,6 +5,8 @@ namespace Mawuva\QueryFilter\Classes;
 use Illuminate\Foundation\Application;
 use Illuminate\Support\Collection;
 use Mawuva\QueryFilter\Concerns\Classes\AvailabilityHelper;
+use Mawuva\QueryFilter\Filters\Between\FilterBetween;
+use Mawuva\QueryFilter\Filters\Between\FilterNotBetween;
 use Mawuva\QueryFilter\Filters\Comparisons\FilterEqual;
 use Mawuva\QueryFilter\Filters\Comparisons\FilterGreaterOrEqualTo;
 use Mawuva\QueryFilter\Filters\Comparisons\FilterGreaterThan;
@@ -37,6 +39,8 @@ class AvailableFilter
         'exact'             => FilterExact::class,
         'in'                => FilterIn::class,
         'not_in'            => FilterNotIn::class,
+        'between'           => FilterBetween::class,
+        'not_between'       => FilterNotBetween::class,
     ];
 
     public function __construct(protected string $name, ?string $insideName = null)
