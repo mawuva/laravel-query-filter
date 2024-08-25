@@ -4,11 +4,11 @@ namespace Mawuva\QueryFilter;
 
 use Illuminate\Database\Eloquent\Builder;
 use Illuminate\Http\Request;
-use Mawuva\QueryFilter\Concerns\Queries\{FiltersQuery, SearchQuery};
+use Mawuva\QueryFilter\Concerns\Queries\{FieldsQuery, FiltersQuery, SearchQuery, SortsQuery};
 
 abstract class QueryFilter
 {
-    use FiltersQuery, SearchQuery;
+    use FiltersQuery, SearchQuery, FieldsQuery, SortsQuery;
 
     /**
      * @var RequestQueryBuilder
@@ -39,6 +39,8 @@ abstract class QueryFilter
 
         $this ->applySearchQuery();
         $this ->applyFilterQuery();
+        $this ->applyFieldQuery();
+        $this ->applySortQuery();
 
         return $this ->builder;
     }
