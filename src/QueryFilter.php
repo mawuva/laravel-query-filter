@@ -44,4 +44,9 @@ abstract class QueryFilter
 
         return $this ->builder;
     }
+
+    public function requestedFilter($filter)
+    {
+        return $this ->request->filters()->has($filter);
+    }
 }

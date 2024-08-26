@@ -34,7 +34,7 @@ trait HasBuiltInCustomFilters
      * @param $value
      * @return mixed
      */
-    public function builtInFilterTrashed($query, $value)
+    protected function builtInFilterTrashed($query, $value)
     {
         if ($value === 'only') {
             return $query->onlyTrashed();
